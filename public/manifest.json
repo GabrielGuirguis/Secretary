@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Secretary",
+    "version": "1.0.0",
+    "description": "Add events to Google Calendar",
+    "permissions": ["identity", "storage", "scripting"],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": "content.js",
+            "run_at": "document_end"
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "oauth2": {
+        "client_id": "875863091247-9aci3mdcia91jtfucq4tfcag4765ar1u.apps.googleusercontent.com",
+        "scopes": ["https://www.googleapis.com/auth/calendar.events"]
+    },
+    "host_permissions": ["https://www.googleapis.com/"]
+}
